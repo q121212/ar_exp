@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebVR - A-Frame</title>
+  <meta name="description" content="WebVR - A-Frame">
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.1/dist/aframe-physics-system.min.js"></script>
+</head>
+<body>
+<script>
+    AFRAME.registerComponent('scale-on-mouseenter', {
+        schema: {
+            to: {default: '2.5 2.5 2.5'}
+        },
+
+        init: function () {
+            var data = this.data;
+            this.el.addEventListener('mouseenter', function () {
+                this.setAttribute('scale', data.to);
+            });
+        }
+    });
+    AFRAME.registerComponent('scale-on-mouseleave', {
+        schema: {
+            to: {default: '1 1 1'}
+        },
+
+        init: function () {
+            var data = this.data;
+            this.el.addEventListener('mouseleave', function () {
+                this.setAttribute('scale', data.to);
+            });
+        }
+    });
+</script>
+<a-scene>
+  <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
+           position="-3 1 -4" loop="True"></a-sound>
+  <a-entity rotation="0 0 30" scale="1 1 1">
+    <a-text value="Scene 1" position="0 3 -3" color="#009"></a-text>
+    <a-torus-knot arc="120" p="2 q=9 radius="1" radius-tubular="0.05"
+    position="-4 1 -4" color="#B8860B" ></a-torus-knot>
+    <a-dodecahedron color="#FF77FF" radius="0.5" position="2 1 -2"></a-dodecahedron>
+    <a-box position="-1.5 0.5 -3" rotation="0 -10 0" color="#fCC3D9"
+           material="src: https://cdn.glitch.com/18ebd519-559a-424c-9c2d-f1c70cc09a47%2Fwood.jpg?1524310887038"
+           scale-on-mouseenter="to: 2 2 2"
+           scale-on-mouseleave
+           dinamic-body>
+      <a-animation attribute="position" to="-1.3 0.8 -3"
+                   direction="alternate" dur="2000"
+                   repeat="indefinite"></a-animation>
+      <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+    </a-box>
+    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
+      <a-cone src="https://cdn.glitch.com/b870d9ec-1139-44f9-b462-223e4a2c74e7%2Fcone.jpg?1490308535937" height="2" radius-top="0.1"
+              position="0 1.5 0"></a-cone>
+      <a-ring position="1 1 0" radius="2" color="blue">
+        <a-animation attribute="color" dur=10000 from="blue" to="darkblue" repeat="indefinite"></a-animation>
+      </a-ring>
+      <a-ring position="-1 1 0" radius="2.3" color="blue"></a-ring>
+    </a-sphere>
+    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5"
+                color="#FFC65D" rotation="90 0 0"></a-cylinder>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" caveatsheight="4"
+             color="#7BC8A4"
+             src="https://cdn.aframe.io/a-painter/images/floor.jpg" repeat="3 3"
+             static-body></a-plane>
+    <a-sky color="yellow"
+           src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+    </a-sky>
+    <a-light type="ambient" color="#445451"></a-light>
+    <a-light type="point" intensity="0.3" position="2 4 4"></a-light>
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-entity>
+</a-scene>
+</body>
+</html>
