@@ -1,12 +1,23 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const funcs = require('../funcs');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+const DEBUG = false;
+
+funcs.Logger(router, DEBUG);
+
+router.get('/', function (req, res, next) {
     res.send('respond for index');
 });
 
-router.get('/about', function (req,res, next) {
+router.get('/about', function (req, res, next) {
     res.send('Response for About');
-})
+});
+
+router.get('/ar', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/ar3.html'));
+
+});
+
 module.exports = router;
