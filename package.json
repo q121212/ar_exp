@@ -1,0 +1,27 @@
+{
+  "name": "ar_exp",
+  "version": "0.0.2",
+  "description": "AR_exp",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "devstart": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q121212/ar_exp.git"
+  },
+  "author": "MaxR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q121212/ar_exp/issues"
+  },
+  "homepage": "https://github.com/q121212/ar_exp#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
