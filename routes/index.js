@@ -20,4 +20,12 @@ router.get('/ar', function (req, res, next) {
 
 });
 
+router.get('/fifa2018', function (req,res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/fifa.html'));
+});
+
+router.get('/game', function (req,res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/game.html'));
+});
+
 module.exports = router;
