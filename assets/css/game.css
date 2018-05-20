@@ -1,3 +1,19 @@
+body{
+    background: cornsilk;
+    font-family: 'Butterfly Kids', cursive;
+    font-size: 38px;
+}
+#gameHeader {
+    margin: 0 auto;
+    width: 400px;
+    height: 50px;
+    background: yellowgreen;
+    margin-bottom: 10px;
+}
+#curEvent {
+    float: right;
+}
+
 #matrix
 {
     width: 400px;

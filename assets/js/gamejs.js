@@ -40,6 +40,7 @@ function setCell(row, col, val)
 window.onload = function()
 {
     var row = 1, col = 1;
+    var curEvent = document.getElementById('curEvent');
     createMatrix();
     setCell(row, col, true);
     getCell(row, col);
@@ -48,6 +49,7 @@ window.onload = function()
         // alert('keydown event\n\n' + 'key: ' + keyName);
         setCell(row,col, false);
         console.log(keyName);
+        curEvent.innerText=keyName;
         switch (keyName){
             case 'ArrowUp':
                 if (row>1)
