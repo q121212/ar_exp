@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const funcs = require('../funcs');
+// const html = require('html');
 
 const DEBUG = false;
 
@@ -17,6 +18,12 @@ router.get('/about', function (req, res, next) {
 
 router.get('/ar', function (req, res, next) {
     res.sendFile(path.join(__dirname + '/../assets/ar3.html'));
+
+});
+
+router.get('/b', function (req, res, next) {
+    res.write(JSON.stringify([1,2,3]));
+    res.end();
 
 });
 
