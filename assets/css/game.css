@@ -12,6 +12,7 @@ body{
 }
 #curEvent {
     float: right;
+    padding-right: 5px;
 }
 
 #matrix
@@ -30,4 +31,26 @@ body{
     height: 19px;
     border-bottom: 1px solid #999;
     border-right: 1px solid #999;
+}
+
+footer {
+    margin: 10px auto;
+    background: olivedrab;
+    width: 400px;
+    height: 50px;
+
+}
+
+#ver {
+    float: right;
+    margin-right: 5px;
+}
+#dev {
+    float: left;
+    margin-left: 5px;
+    font-size: 24px;
+}
+
+#dev a {
+    color: darkred;
 }
