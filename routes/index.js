@@ -4,6 +4,13 @@ const path = require('path');
 const funcs = require('../funcs');
 // const html = require('html');
 
+var mongo = require('mongodb');
+var url = "mongodb://localhost:27017/";
+var MongoClient = mongo.MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+
 const DEBUG = false;
 
 funcs.Logger(router, DEBUG);
@@ -13,7 +20,18 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/about', function (req, res, next) {
-    res.send('Response for About');
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("myTestDb");
+        var query = { name: {$ne: ''} };
+        dbo.collection("users").find(query).toArray(function(err, result) {
+          if (err) throw err;
+          console.log(result);
+          db.close();
+        //   res.send('Response for About');
+          res.json(result);
+        });
+      });
 });
 
 router.get('/ar', function (req, res, next) {
