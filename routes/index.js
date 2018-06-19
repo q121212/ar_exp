@@ -53,4 +53,10 @@ router.get('/game', function (req,res, next) {
     res.sendFile(path.join(__dirname + '/../assets/game.html'));
 });
 
+router.get('/fun', function (req,res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/fun.html'));
+});
+
+
+
 module.exports = router;

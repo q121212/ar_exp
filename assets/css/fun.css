@@ -1,0 +1,87 @@
+body{
+    background: cornsilk;
+    font-family: 'Butterfly Kids', cursive;
+    font-size: 38px;
+}
+
+.item-active, .cell.item-active {
+    border: 1px solid brown;
+    background: olivedrab;
+}
+
+#gameHeader {
+    margin: 0 0 10px 30.7%;
+    width: 400px;
+    height: 50px;
+    background: yellowgreen;
+}
+#curEvent {
+    float: right;
+    padding-right: 5px;
+}
+
+#field-container {
+    margin: 0 auto;
+}
+
+#matrix
+{
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+}
+
+.cell
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #999;
+}
+
+footer {
+    margin: 0 0 10px 30.7%;
+    /*margin: 10px auto;*/
+    background: olivedrab;
+    width: 400px;
+    height: 50px;
+
+}
+
+#ver {
+    float: right;
+    margin-right: 5px;
+}
+#dev {
+    float: left;
+    margin-left: 5px;
+    font-size: 24px;
+}
+
+#dev a {
+    color: darkred;
+}
+
+
+#inp-form {
+    width: 30%;
+    height: 200px;
+    display: inline-block;
+}
+
+
+#inpTextArea {
+    width: 70%;
+    height: 60%;
+    padding: 0 0 40% 0;
+    margin-left: 10%;
+}
+
+#output {
+    width: auto;
+    max-width: 20%;
+    height: 300px;
+    display: inline-block;
+    overflow: auto;
+    overflow-x: hidden;
+}
