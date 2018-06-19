@@ -77,11 +77,49 @@ footer {
     margin-left: 10%;
 }
 
-#output {
+output {
     width: auto;
     max-width: 20%;
     height: 300px;
+    left: 15px;
     display: inline-block;
     overflow: auto;
     overflow-x: hidden;
+    position: relative;
+}
+
+#paramsChanger {
+    display: none;
+    position: absolute;
+    padding: 5%;
+    width: 300px;
+    background: white;
+    top: 32%;
+    left: 30%;
+    z-index: 10;
+    border: 1px solid darkgray;
+    border-radius: .3rem;
+}
+
+#closeBtn {
+    cursor: pointer;
+    opacity: .3;
+    position: absolute;
+    right: 1%;
+    top: 5%;
+    border: none;
+}
+
+#controlBtns {
+    cursor: pointer;
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    border: none;
+}
+
+#applyBtn, #cancelBtn {
+    cursor: pointer;
+    border: none;
+    display: inline-block;
 }
