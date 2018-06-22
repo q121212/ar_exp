@@ -58,5 +58,10 @@ router.get('/fun', function (req,res, next) {
 });
 
 
+router.get('/algs', function (req,res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/algs.html'));
+});
+
+
 
 module.exports = router;

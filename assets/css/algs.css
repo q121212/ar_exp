@@ -1,0 +1,31 @@
+article {
+    margin: 1em;
+    width: 35em;
+}
+
+header {
+    font-weight: bold;
+    padding-top: .5em;
+}
+.taskDescription {
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px solid brown;
+}
+
+.dataTableTable {
+    width: 35em;
+    max-height: 16em;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+#regenerateData {
+
+
+}
+
+.solution {
+    display: inline-block;
+    float: right;
+}
