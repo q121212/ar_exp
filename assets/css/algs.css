@@ -21,6 +21,25 @@ header {
     overflow-x: hidden;
     position: relative;
 }
+
+table {
+    margin-bottom: .5em;
+}
+
+
+table tbody tr {
+    text-align: center;
+}
+
+table thead, table tbody {
+    border: 1px solid saddlebrown;
+    /*margin-bottom: 1em;*/
+}
+
+table > thead > tr > th {
+    border-bottom: none;
+}
+
 #regenerateData {
 
 

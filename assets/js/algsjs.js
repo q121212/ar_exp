@@ -76,6 +76,7 @@ function updateSolutionTable() {
     });
     // console.table(sortedRowsArray);
     var sortedTable = document.createElement('table');
+    sortedTable.className +='table-hover table-sm table-responsive';
     var tblBody = document.createElement('tbody');
     console.log(sortedRowsArray);
     var sumEnter =0,
@@ -97,7 +98,7 @@ function updateSolutionTable() {
        tstd.innerHTML=item['timestamp'];
        var count = document.createElement('td');
        count.innerHTML = item['count'];
-       var type = document.createElement('type');
+       var type = document.createElement('td');
        type.innerHTML=item['type'];
        item['type'] === 'enter' ? peopleInBuilding+=parseInt(item['count']) : peopleInBuilding-=parseInt(item['count']);
        if (peopleInBuilding>maxPeopleInBulding['maxValue']) {
@@ -106,8 +107,9 @@ function updateSolutionTable() {
        } else if (peopleInBuilding === maxPeopleInBulding['maxValue']) {
            maxPeopleInBulding['timestamp'].push(item['timestamp']);
        }
-       console.log(maxPeopleInBulding);
-        maxPeopleInBulding['timestamp'].forEach(function (item, index) {
+       // console.log(maxPeopleInBulding);
+       // TODO: need to fix.Currently uncorrect calculates periods (unhandled) when more then one case with maxPeopleInTheBuilding
+       maxPeopleInBulding['timestamp'].forEach(function (item, index) {
            sortedRowsArray.forEach(function (it, ind) {
 
                if (item === it['timestamp']) {
@@ -131,10 +133,13 @@ function updateSolutionTable() {
        tr.appendChild(peopleInBuildingTd);
        tblBody.appendChild(tr);
     });
-    var th = document.createElement('th');
+    var thead = document.createElement('thead'),
+        th = document.createElement('th');
     th.innerHTML='People in the Building';
-    var header = tableHeader.appendChild(th);
-    sortedTable.appendChild(tableHeader);
+    tableHeader.appendChild(th);
+    var header = tableHeader;
+        thead.appendChild(tableHeader);
+    sortedTable.appendChild(thead);
     sortedTable.appendChild(tblBody);
     if(busiestPeriodSolution.innerHTML) busiestPeriodSolution.innerHTML='';
     busiestPeriodSolution.appendChild(sortedTable);
@@ -146,8 +151,10 @@ function updateSolutionTable() {
         `<div id="entExCounts">
         <p>Total people entered to Building: ${sumEnter}. Total leaves building: ${sumExit}.
         <p>Periods of the maximum people in the Building, namely ${maxPeopleInBulding['maxValue']} people was:
-        <p>${maxPeopleInBuildingPeriods['prevTimestamp']} - ${maxPeopleInBuildingPeriods['timestamp']}
+        <p>${maxPeopleInBuildingPeriods['prevTimestamp']} - ${maxPeopleInBuildingPeriods['timestamp']}, i.e. ${maxPeopleInBuildingPeriods['timestamp'] - maxPeopleInBuildingPeriods['prevTimestamp']} seconds
         </div>`);
-    console.log(textNode);
+    // console.log(textNode);
 }
 updateSolutionTable();
+
+// FIXME: when  many rows in table then sometimes happens uncorrect sorting. It's problem of async and slow rendering of page, i think so.
