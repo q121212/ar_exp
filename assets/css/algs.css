@@ -6,8 +6,9 @@ article {
 header {
     font-weight: bold;
     padding-top: .5em;
+    text-align: center;
 }
-.taskDescription {
+.taskDescription,.solution {
     padding: .5em;
     border-radius: 5px;
     border: 1px solid brown;
@@ -26,6 +27,21 @@ header {
 }
 
 .solution {
-    display: inline-block;
-    float: right;
+    position: absolute;
+    left: 37em;
+    top: 0em;
+    margin: 1em;
+    max-width: 35em;
+}
+
+summary {
+    max-width: 35em;
+}
+
+summary li {
+    list-style-type: none;
+}
+
+.visHidden {
+    display: none;
 }

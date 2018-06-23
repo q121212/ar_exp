@@ -5,12 +5,18 @@
     <title>Algs</title>
     <link rel="stylesheet" href="css/algs.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
 <body>
-<article>
+<summary id="tasksList">
+    <header>Content</header>
+    <ul>
+        <li id="busiestPeriodLi">"Busiest period in the building" task - сalculation of time with the most people in the building.</li>
+        <li id="task2">"task 2" task - some description.</li>
+
+    </ul>
+
+</summary>
+<article id="busiestPeriod">
     <section class="taskDescription">
         <header>Task deskription</header>
         <p>You are given a list of data entries that represent entries and exits of groups of people into a building. An entry looks like this:
@@ -55,10 +61,21 @@
         <header>
             Solution
         </header>
-        fkl ;kfs ;fs k;lfds j;kl
+        <section class="solutionDescription">
+            <p>First at all I need to sort all events by time.</p>
+            <p>Secondly, I need to add  a column with the number of people in the building for each ofthe timestamps.</p>
+            <p>To fill this column I need to add incoming ('enter') and subtracting outgoing ('exit') peolpe.</p>
+            <p>In order to avoid the situation when there is a negative number of visitors in the building, I set the initial number of visitors equal to the sum of those who left the building.</p>
+            <p>In order not to have to scan the array thrice, I need to create a variable that will store the maximum number of people in the building for the current (itterated at the moment) timestamp.</p>
+        </section>
+        <section class="solutionResult" id="busiestPeriodSolution">
+
+        </section>
     </section>
 </article>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script src="js/algsjs.js"></script>
 
 </body>
