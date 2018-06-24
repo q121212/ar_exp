@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const funcs = require('../funcs');
 // const html = require('html');
+const wgql = require('../wgql');
 
 var mongo = require('mongodb');
 var url = "mongodb://localhost:27017/";
@@ -62,6 +63,9 @@ router.get('/algs', function (req,res, next) {
     res.sendFile(path.join(__dirname + '/../assets/algs.html'));
 });
 
+router.get('/wgql', function (req,res, next) {
+    console.log(wgql.result);
+});
 
 
 module.exports = router;

@@ -11,7 +11,7 @@
     <header>Content</header>
     <ul>
         <li id="busiestPeriodLi">"Busiest period in the building" task - сalculation of time with the most people in the building.</li>
-        <li id="task2">"task 2" task - some description.</li>
+        <li id="task2">"Flatten nested dictionary" task</li>
 
     </ul>
 
@@ -71,6 +71,34 @@
         <section class="solutionResult" id="busiestPeriodSolution">
 
         </section>
+    </section>
+</article>
+
+<article id="FlattenNestedDictionary">
+    <section class="taskDescription">
+        <header>Task description</header>
+        <p>Write a function to flatten a nested dictionary. Namespace the keys with a period.
+        <p>For example, given the following dictionary:
+
+        <code>
+{
+    "key": 3,
+    "foo": {
+       "a": 5,
+        "bar": {
+            "baz": 8
+        }
+    }
+}</code>
+        <p>it should become:
+
+        <code>
+{
+    "key": 3,
+    "foo.a": 5,
+    "foo.bar.baz": 8
+}</code>
+        <p>You can assume keys do not contain dots in them, i.e. no clobbering will occur.
     </section>
 </article>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

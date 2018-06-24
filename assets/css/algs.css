@@ -8,6 +8,11 @@ header {
     padding-top: .5em;
     text-align: center;
 }
+
+code {
+    white-space: pre;
+}
+
 .taskDescription,.solution {
     padding: .5em;
     border-radius: 5px;
@@ -55,10 +60,6 @@ table > thead > tr > th {
 
 summary {
     max-width: 35em;
-}
-
-summary li {
-    list-style-type: none;
 }
 
 .visHidden {
