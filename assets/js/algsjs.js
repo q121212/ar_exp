@@ -158,3 +158,91 @@ function updateSolutionTable() {
 updateSolutionTable();
 
 // FIXME: when  many rows in table then sometimes happens uncorrect sorting. It's problem of async and slow rendering of page, i think so.
+
+
+// Task 2 Flatten Nested Dictionary
+
+var jsonToFlatten = JSON.parse(document.getElementById('JSONtoFlattenExample').innerText);
+console.log(jsonToFlatten);
+
+function justAFlatterJson() {
+    var flattenJson = {};
+    function flatterJson(json, startOfKey='') {
+        this.json = json;
+        // var fj = {};
+            for (var i in this.json){
+                // console.log(typeof json[i]);
+                if (typeof json[i] !== "object"){
+                    flattenJson[startOfKey +  i] = this.json[i];
+                } else {
+                    this.startOfKey = startOfKey + i + '.';
+                    flatterJson(json[i], this.startOfKey);
+                }
+                // console.log(i);
+            }
+
+        return [flattenJson, this.startOfKey];
+            // console.log(fj);
+    }
+
+    [flattenJson, _] = flatterJson(jsonToFlatten);
+    return flattenJson;
+}
+var task2SolutionValues = justAFlatterJson(jsonToFlatten);
+
+var FlattenNestedDictionary = document.getElementById('FlattenNestedDictionary');
+var task2Solution = document.createElement('section');
+task2Solution.classList.add('solution');
+
+var task2SolutionHeader = document.createElement('header');
+task2SolutionHeader.innerText='Solution';
+task2Solution.appendChild(task2SolutionHeader);
+var task2SolutionResult= document.createElement('section');
+task2SolutionResult.classList.add('solutionResult');
+task2SolutionResult.innerHTML=JSON.stringify(task2SolutionValues);
+task2Solution.appendChild(task2SolutionResult);
+
+FlattenNestedDictionary.appendChild(task2Solution);
+
+// ---- etc.
+
+
+class Calculator {
+    constructor(){
+        this.VAT = 22;
+    }
+    sum(...items){
+        let total = 0;
+        let i = 0;
+        for(i; i < items.length; i++){
+            total = total + items[i];
+            total = total + items[i] * this.VAT/100;
+        }
+        return total;
+    }
+}
+
+class Receipt {
+    constructor(calculator){
+        this.calc = calculator;
+    }
+    print(...items){
+        let total = this.calc.sum(...items);
+        console.log(`total receipt £${total.toFixed(2)}`);
+    }
+}
+
+const JEANS = 80.00;
+const SHIRT = 35.00;
+const SHOES = 90.00;
+const COAT = 140.00;
+const HAT = 29.00;
+const calc = new Calculator();
+const receipt = new Receipt(calc);
+receipt.print(JEANS, SHIRT, SHOES, COAT, HAT);
+
+console.log(calc.sum(5,6));
+
+const originalArray = [1, 4, 8, 12];
+const finalArray = originalArray.map(value => value+1);
+console.log(finalArray); 
