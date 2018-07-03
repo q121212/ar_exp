@@ -1,0 +1,62 @@
+::first-letter {
+    font-size: larger;
+}
+
+
+article, footer {
+    float: right;
+    height: 3.2em;
+}
+
+article {
+    width: 90%;
+    padding-left: 2em;
+    height: auto;
+    max-height: 80%;
+    /*border: 1px solid rgba(20,20,20,.1);*/
+}
+
+header, footer {
+    width: 100%;
+}
+
+header {
+    border-bottom: 1px solid rgba(20,20,20,.1);
+
+}
+
+aside {
+    width: 30%;
+}
+
+
+footer {
+    border-top: 1px solid rgba(20,20,20,.1);;
+}
+
+header, aside {
+    float: left;
+}
+
+span {
+    float: left;
+    margin: .5em;
+    padding: .5em;
+    clear: none;
+    border: 1px solid darkorchid;
+    cursor: pointer;
+}
+
+span:hover {
+    border-color: darkslateblue;
+    background: cornsilk;
+}
+
+span:active {
+    text-decoration: underline;
+}
+
+header, aside {
+    clear: both;
+}
+

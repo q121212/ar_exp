@@ -68,4 +68,9 @@ router.get('/wgql', function (req,res, next) {
 });
 
 
+router.get('/mvp', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/main_page.html'));
+
+});
+
 module.exports = router;

@@ -80,6 +80,7 @@ function setRandomWorms(){
         var [row, col] = [Math.floor(Math.random()*20), Math.floor(Math.random()*20)];
         setCell(row, col, true, 'blue');
     }
+    //TODO: need to correct countItems;
     return countItems;
 }
 
