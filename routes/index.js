@@ -40,6 +40,20 @@ router.get('/ar', function (req, res, next) {
 
 });
 
+router.get('/ar1', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/1/index.html'));
+
+});
+router.get('/ar7', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/index.html'));
+
+});
+
+
+router.get('/vr', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/../assets/scene1_full.html'));
+});
+
 router.get('/b', function (req, res, next) {
     res.write(JSON.stringify([1,2,3]));
     res.end();

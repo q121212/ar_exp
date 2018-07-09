@@ -60,8 +60,19 @@ table > thead > tr > th {
 
 summary {
     max-width: 35em;
+    margin-left: 1em;
 }
 
 .visHidden {
     display: none;
+}
+
+.selectedInContent {
+    font-size: small;
+}
+
+#break {
+    height: 1px;
+    width: inherit;
+    border: 1px solid darkslategray;
 }

@@ -1,4 +1,4 @@
-window.onload = function(){
+    window.onload = function(){
     createMatrix();
     // var matrix = document.getElementById('matrix');
     // matrix.addEventListener('click',activeItem);

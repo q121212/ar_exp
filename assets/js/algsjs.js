@@ -1,15 +1,50 @@
 // general functions
+// var algsLocalStorage = window.localStorage;
 var summaryList = document.getElementById('tasksList');
 summaryList.addEventListener('click', function (e) {
-    var articleId = e.srcElement.id.substr(0,e.srcElement.id.length-2);
+    var contentEl = e.srcElement;
+    var articleId = getArticleIdFromTaskListId(contentEl);
     var articleIdItem = document.getElementById(articleId);
     if(articleId){
         articleIdItem.classList.toggle("visHidden");
+        contentEl.classList.toggle("selectedInContent");
     }
 });
 
+function getArticleIdFromTaskListId (taskListId){
+    let articleId = taskListId.id.substr(0,taskListId.id.length-2);
+    return articleId;
+}
 
-// functions for busiestPeriod task description and solution
+function init () {
+    var collectionOfContentItems = summaryList.children[1].children;
+    for (let i = 1; i < collectionOfContentItems.length; i++) {
+        // console.log(getArticleIdFromTaskListId(collectionOfContentItems[i]));
+        document.getElementById(getArticleIdFromTaskListId(collectionOfContentItems[i])).classList.toggle("visHidden");
+        collectionOfContentItems[i].classList.toggle("selectedInContent");
+    }
+}
+init();
+
+function createSolutionSection(articleId, taskResultHtml) {
+    var articleElem = document.getElementById(articleId);
+    aTaskSolution = document.createElement('section');
+    aTaskSolution.classList.add('solution');
+
+    var aTaskSolutionHeader = document.createElement('header');
+    aTaskSolutionHeader.innerText='Solution';
+    aTaskSolution.appendChild(aTaskSolutionHeader);
+    var aTaskSolutionResult= document.createElement('section');
+    aTaskSolutionResult.classList.add('solutionResult');
+    aTaskSolutionResult.innerHTML= taskResultHtml;
+    aTaskSolution.appendChild(aTaskSolutionResult);
+
+    articleElem.appendChild(aTaskSolution);
+
+}
+
+
+// Task 1 - functions for busiestPeriod task description and solution
 var regenerateDataBtn = document.getElementById('regenerateData');
 var addRow = document.getElementById('addRow');
 var dataTableTable = document.getElementById('dataTableTable').lastElementChild; // due tbody
@@ -83,8 +118,7 @@ function updateSolutionTable() {
         sumExit=0;
     sortedRowsArray.forEach(function (item,index) {
        item['type']==='enter' ? sumEnter+=parseInt(item['count']) : sumExit+=parseInt(item['count']);
-        console.log(busiestPeriodSolution);
-
+        // console.log(busiestPeriodSolution);
     });
 
 
@@ -163,7 +197,7 @@ updateSolutionTable();
 // Task 2 Flatten Nested Dictionary
 
 var jsonToFlatten = JSON.parse(document.getElementById('JSONtoFlattenExample').innerText);
-console.log(jsonToFlatten);
+// console.log(jsonToFlatten);
 
 function justAFlatterJson() {
     var flattenJson = {};
@@ -190,23 +224,30 @@ function justAFlatterJson() {
 }
 var task2SolutionValues = justAFlatterJson(jsonToFlatten);
 
-var FlattenNestedDictionary = document.getElementById('FlattenNestedDictionary');
-var task2Solution = document.createElement('section');
-task2Solution.classList.add('solution');
-
-var task2SolutionHeader = document.createElement('header');
-task2SolutionHeader.innerText='Solution';
-task2Solution.appendChild(task2SolutionHeader);
-var task2SolutionResult= document.createElement('section');
-task2SolutionResult.classList.add('solutionResult');
-task2SolutionResult.innerHTML=JSON.stringify(task2SolutionValues);
-task2Solution.appendChild(task2SolutionResult);
-
-FlattenNestedDictionary.appendChild(task2Solution);
-
+createSolutionSection('FlattenNestedDictionary', JSON.stringify(task2SolutionValues));
 // ---- etc.
 
 
+
+// Task 3 Divide array of integers into two subsets with min sum
+
+var divideIntoTwoSubsetsWithMinSumInpArrText = document
+    .getElementById('divideIntoTwoSubsetsWithMinSumInpArr').innerText;
+
+let inpArr = divideIntoTwoSubsetsWithMinSumInpArrText
+    .substr(1,divideIntoTwoSubsetsWithMinSumInpArrText.length-2).split(', ');
+
+function solutionForTask3 (inpArr) {
+    var result = {};
+    result = {1,3};
+    return result;
+}
+
+var solutionForTask3Html = solutionForTask3(inpArr);
+console.log(solutionForTask3Html);
+createSolutionSection('divideIntoTwoSubsetsWithMinSum', solutionForTask3Html);
+
+//
 class Calculator {
     constructor(){
         this.VAT = 22;
@@ -239,10 +280,10 @@ const COAT = 140.00;
 const HAT = 29.00;
 const calc = new Calculator();
 const receipt = new Receipt(calc);
-receipt.print(JEANS, SHIRT, SHOES, COAT, HAT);
+// receipt.print(JEANS, SHIRT, SHOES, COAT, HAT);
 
-console.log(calc.sum(5,6));
+// console.log(calc.sum(5,6));
 
 const originalArray = [1, 4, 8, 12];
 const finalArray = originalArray.map(value => value+1);
-console.log(finalArray); 
+// console.log(finalArray);
