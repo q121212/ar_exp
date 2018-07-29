@@ -238,8 +238,11 @@ let inpArr = divideIntoTwoSubsetsWithMinSumInpArrText
     .substr(1,divideIntoTwoSubsetsWithMinSumInpArrText.length-2).split(', ');
 
 function solutionForTask3 (inpArr) {
-    var result = {};
-    result = {1,3};
+    function divider(inpArr) {
+        
+    }
+    var result = {'first':[],'second':};
+    result = {1:3};
     return result;
 }
 

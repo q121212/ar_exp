@@ -6,19 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
 </head>
-<body>
+<div>
 <header>
     <span>AR in retail</span>
     <span>AR in education</span>
     <span>Feedback</span>
-    <span>Logo</span>
+    <span id="signIn">Sign In</span>
+    <span class="logo">Logo</span>
 </header>
+<!-- The Modal -->
+    <div id="signInModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 id="modalHeaderText">Sign in to your workspace</h2>
+        </div>
+        <div class="modal-body">
+            <p>Enter your <b>email address</b> and <b>password</b></p>
+            <form name="signInRegister" action="signin" method="POST">
+                <input type="email" name="email" size="40" value placeholder="you@example.com">
+                <input type="password" name="password" size="40" value placeholder="password">
+                <button type="submit" id="signIn_btn" class="srButtons">Sign In</button>
+                <button type="submit" id="createBtn" class="srButtons">Create</button>
+                <div class="divInForm" id="divInForm">
+                    <a id="forgot-pw" href="">Forgot password?</a>
+                    <a id="getStartted" href="">Forgot which email you used?</a>
+                    <a id="createSignInLink" href="">Create an account</a>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <h3></h3>
+        </div>
+    </div>
+</div>
 <aside>Aside panel</aside>
-<article>Main text will be here</article>
+<article id="mainText">Main text will be here</article>
 
 <footer>
-    <span>Our team</span>
-    <span>Copyright</span>
+    <span id="ourTeam">Our team</span>
+    <span>Project history</span>
 </footer>
 <script src="js/main.js"></script>
 </body>
