@@ -9,6 +9,13 @@ body {
     background-repeat: no-repeat;
 }
 
+body #content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "aside article article article article";
+}
+
 ::first-letter {
     font-size: larger;
 }
@@ -26,16 +33,12 @@ h1 {
 
 
 article {
-    width: 80%;
+    grid-area: article;
     margin-left: 2em;
-    min-height: 3em;
-    max-height: 80%;
-    border-left: 1px solid rgba(20,20,20,.1);
-    float: right;
     opacity: 0.6;
 }
 
-article p{
+article p, article ul li{
     font-stretch: expanded;
 }
 
@@ -47,10 +50,14 @@ header {
     border-bottom: 1px solid rgba(20,20,20,.1);
     width: 100%;
     clear: both;
+    display: grid;
+    grid-template-columns: repeat(1fr,9);
+    grid-template-areas: "Retail Edu Feedback Gap Gap Gap Gap Logo SignIn";
+    grid-column-gap: 1px;
 }
 
 aside {
-    width: 20%;
+    grid-area: aside;
     border-right: 1px solid rgba(20,20,20,.1);
     min-width: 3em;
 }
@@ -58,11 +65,7 @@ aside {
 
 footer {
     border-top: 1px solid rgba(20,20,20,.1);
-    float: right;
-}
-
-header, aside {
-    float: left;
+    display: block;
 }
 
 span {
@@ -70,6 +73,8 @@ span {
     margin: .5em;
     padding: .5em;
     clear: none;
+    color: white;
+    background-color: rgba(150,170,200,.3);
     border: 1px solid #0074D4;
     border-radius: 3px;
     cursor: pointer;
@@ -77,12 +82,77 @@ span {
     opacity: 0.8;
 }
 
+span#retail {
+    grid-area: Retail;
+}
+span#edu {
+    grid-area: Edu;
+}
+
+span#feedback {
+    grid-area: Feedback;
+    padding-left: 1em;
+}
+
 span.logo {
+    grid-area: Logo;
     border: none;
     float: right;
 }
+ .enjoy-css {
+     -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+     box-sizing: content-box;
+     border: none;
+     font: normal 16px/1 "Times New Roman", Times, serif;
+     color: rgba(255,255,255,1);
+     text-align: center;
+     -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+     background: -webkit-linear-gradient(-45deg, rgba(186,126,126,1) 0, rgba(0,150,255,1) 100%);
+     background: -moz-linear-gradient(135deg, rgba(186,126,126,1) 0, rgba(0,150,255,1) 100%);
+     background: linear-gradient(135deg, rgba(186,126,126,1) 0, rgba(0,150,255,1) 100%);
+     background-position: 50% 50%;
+     -webkit-background-origin: padding-box;
+     background-origin: padding-box;
+     -webkit-background-clip: border-box;
+     background-clip: border-box;
+     -webkit-background-size: auto auto;
+     background-size: auto auto;
+     -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+     -webkit-transform: rotateX(-40.10704565915762deg) rotateY(-26.92901637114869deg)   ;
+     transform: rotateX(-40.10704565915762deg) rotateY(-26.92901637114869deg)   ;
+ }
+/*.enjoy-css {*/
+    /*-webkit-box-sizing: content-box;*/
+    /*-moz-box-sizing: content-box;*/
+    /*box-sizing: content-box;*/
+    /*width: 160px;*/
+    /*padding: 20px;*/
+    /*overflow: hidden;*/
+    /*border: none;*/
+    /*font: normal 16px/1 "Times New Roman", Times, serif;*/
+    /*color: rgba(255,255,255,1);*/
+    /*text-align: center;*/
+    /*-o-text-overflow: ellipsis;*/
+    /*text-overflow: ellipsis;*/
+    /*background: #329ec9;*/
+    /*-webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;*/
+    /*box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;*/
+    /*text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;*/
+    /*-webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;*/
+    /*-moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;*/
+    /*-o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;*/
+    /*transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;*/
+    /*-webkit-transform: rotateZ(6.875493541569878deg)   ;*/
+    /*transform: rotateZ(6.875493541569878deg)   ;*/
+/*}*/
 
 span#signIn {
+    grid-area: SignIn;
     background: #0074D4;
     float: right;
     color: white;
@@ -96,10 +166,15 @@ span#signIn:hover {
 span:hover {
     border-color: darkslateblue;
     background: cornsilk;
+    color: black;
 }
 
 span:active {
     text-decoration: underline;
+}
+
+#mainText {
+    background-color: rgba(255,255,255,0.9);
 }
 
 /* The Modal (background) */
@@ -141,7 +216,7 @@ span:active {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 50%;
+    width: 70%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s
@@ -169,7 +244,8 @@ input {
 }
 
 input[name='confirmPassword'] {
-    margin-left: 5%;
+    float: right;
+    margin-right: 7%;
 }
 
 .srButtons {
@@ -252,4 +328,34 @@ input[name='confirmPassword'] {
     padding: 2px 16px;
     background-color: #0074D4;
     color: white;
+}
+
+.form-group textarea.form-control {
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    padding: 6px 8px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #24292e;
+
+}
+
+.form-group .form-control {
+    width: 90%;
+    max-width: 90%;
+    margin-right: 5px;
+    background-color: #fafbfc;
+}
+.contact-github textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+textarea {
+    overflow: auto;
+    flex-direction: column;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
