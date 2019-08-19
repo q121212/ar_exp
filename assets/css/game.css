@@ -10,7 +10,12 @@ body{
     background: yellowgreen;
     margin-bottom: 10px;
 }
+#remainsItems {
+    display: inline;
+}
+
 #curEvent {
+    display: inline-block;
     float: right;
     padding-right: 5px;
 }

@@ -25,18 +25,62 @@ window.onload = function () {
     spanCloseBnt.addEventListener('click', function () {
         modal.style.display = "none";
     });
-    window.addEventListener('click', function () {
+    window.addEventListener('click', function (event) {
         if (event.target == ourTeam) {
-            mainText.innerHTML='<h1>Our team</h1> ' +
-                '<p>Leader: Tyurlo Yulia</p>' +
-                '<p>Nevidomsky Dmirty</p>' +
-                '<p>Melnikov Aleksey</p>' +
-                '<p>Vasilchenko Yulia</p>' +
-                '<p>Salikov Aleksander</p>' +
-                '<p>Eremenko Stanislav</p>' +
-                '<p>Shanina Tatjana</p>' +
-                '<p>Rekunchak Max</p>' +
-                '----';
+            mainText.innerHTML='<div class="ourTeam">' +
+                '<div class="teamHeader">' +
+                '   <h2>Team behind</h2>' +
+                '   <h1>SmartReality<hr></h1>' +
+                '</div>' +
+                '<div id="YT" class="person">' +
+                '   <div class="position">Leader, CEO & Founder</div>' +
+                '   <div class="name">Tyurlo Yulia</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription">Born in small North city. Yulia has an impressive perseverance. Multi-tasker.</div>' +
+                '</div>' +
+                '<div id="AM" class="person">' +
+                '   <div class="position">Co-founder</div>' +
+                '   <div class="name">Melnikov Aleksey</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription">Alexey is an a great manager.</div>' +
+                '</div>' +
+                '<div id="DN" class="person">' +
+                '   <div class="position">Head of Marketing</div>' +
+                '   <div class="name">Nevidomsky Dmirty</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription">An judicious man.</div>' +
+                '</div>' +
+                '<div id="AS" class="person">' +
+                '   <div class="position">Head of technical direction</div>' +
+                '   <div class="name">Salikov Aleksander</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription"></div>' +
+                '</div>' +
+                '<div id="YV" class="person">' +
+                '   <div class="position">Chief financier</div>' +
+                '   <div class="name">Vasilchenko Yulia</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription">An finance guru.</div>' +
+                '</div>' +
+                '<div id="MR" class="person">' +
+                '   <div class="position">Chief developer</div>' +
+                '   <div class="name">Rekunchak Max</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription">Passionate about analysis of data.</div>' +
+                '</div>' +
+                '<div id="SE" class="person">' +
+                '   <div class="position">Support manager</div>' +
+                '   <div class="name">Eremenko Stanislav</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription"></div>' +
+                '</div>' +
+                '<div id="TS" class="person">' +
+                '   <div class="position">Main coach</div>' +
+                '   <div class="name">Shanina Tatjana</div>' +
+                '   <hr class="person_hr">' +
+                '   <div class="personDescription"></div>' +
+                '</div>' +
+                    '</div>';
             document.body.style.setProperty('background-image', "url('./imgs/bg_team.jpg')");
             document.body.style.setProperty('background-size', "cover");
             document.body.style.setProperty('background-repeat', "no-repeat");
@@ -52,11 +96,11 @@ window.onload = function () {
             document.body.style.setProperty('background-repeat', "no-repeat");
             document.body.style.setProperty('background', "url('./imgs/bg_store.jpg') cover no-repeat");
         } else if (event.target == edu) {
-            mainText.innerHTML='<p><em>Курс "Новый сотрудник"</em> - погружение в телеком-тематику и специфику деятельности в салоне связи.</p>' +
-                '<p><em>Курс "Первые продажи"</em> - оттачивание навыков работы с проблемными ситуациями и клиентами, обучение работе со сложными продуктами.</p>' +
-                '<p><em>Курс "Презентация продукта"</em> - развитие навыков проведения презентаций.</p>' +
-                '<p><em>Тестирование</em> - оценка качества закрепления умений и навыков.' +
-                '<p><em>Рейтинг</em> - формирование отранжированных списком участников учебных проектов.</p>';
+            mainText.innerHTML='<span><div><em>Курс "Новый сотрудник"</em></div><span>погружение в телеком-тематику и специфику деятельности в салоне связи</span>' +
+                '<div><em>Курс "Первые продажи"</em></div><span>отработка навыков работы с проблемными ситуациями и клиентами, обучение работе со сложными продуктами</span>' +
+                '<div><em>Курс "Презентация продукта"</em></div><span>развитие навыков проведения презентаций</span>' +
+                '<div><p><em>Тестирование</em></div><span>оценка качества закрепления умений и навыков</span>' +
+                '<div><p><em>Рейтинг</em></div><span>формирование отранжированных списком участников учебных проектов</span>';
             document.body.style.setProperty('background-image', "url('./imgs/bg_chairs.jpg')");
             document.body.style.setProperty('background-size', "cover");
             document.body.style.setProperty('background-repeat', "no-repeat");

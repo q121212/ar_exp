@@ -30,6 +30,7 @@ function setCell(row, col, val, color='green')
     // иначе убирает закраску
     var cell_num = (row-1)*20+col-1;
     var matrix = document.getElementById('matrix');
+    // console.log(row, col, val);
     if (val) {
         var backgr = matrix.children[cell_num].style.background = color;
         wasFilled = 1;
@@ -67,20 +68,42 @@ function keysHandler (row, col){
                     col--;
                 break;
         }
+        if (matrix.children[(row-1)*20+col-1].style.background == 'blue'){
+            window.ships--;
+            remainsItems.innerText='Remains: '+window.ships;
+        };
         setCell(row,col,true);
+        if (window.ships == 0)
+        {
+            setTimeout(function(){
+                alert('Win. Congrats!');
+                location.reload();
+            },100);
+        }
     });
 }
 
 
+function randomXY(){
+    var [row, col] = [Math.floor(Math.random()*20), Math.floor(Math.random()*20)];
+    if (row!=0 && col!=0){
+        return [row, col]
+    } else {
+        return randomXY();
+    }
+}
+
 function setRandomWorms(){
     var matrix = document.getElementById('matrix');
     // console.log(row, col);
-    var countItems = Math.floor(Math.random()*20);
-    for (i=0; i< Math.floor(Math.random()*100)+2; i++) {
-        var [row, col] = [Math.floor(Math.random()*20), Math.floor(Math.random()*20)];
+    var countItems = Math.floor(Math.random()*25)+2;
+    // console.log(countItems)
+    for (i=0; i< countItems; i++) {
+        [row, col] = randomXY();
         setCell(row, col, true, 'blue');
     }
     //TODO: need to correct countItems;
+    window.ships=countItems;
     return countItems;
 }
 
@@ -88,9 +111,11 @@ window.onload = function()
 {
     var row = 1, col = 1;
     var curEvent = document.getElementById('curEvent');
+    var remainsItems = document.getElementById('remainsItems');
     createMatrix();
     setCell(row, col, true);
     getCell(row, col);
     var countItems = setRandomWorms();
+    console.log(countItems);
     keysHandler(row,col);
 }

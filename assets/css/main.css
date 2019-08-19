@@ -7,7 +7,9 @@ body {
     background: url('../imgs/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 90%;
 }
+
 
 body #content {
     width: 100%;
@@ -30,12 +32,16 @@ h1 {
     max-width: 14em;
     font-size: 2em;
 }
+h1, h2 {
+    text-align: center;
+}
 
 
 article {
     grid-area: article;
     margin-left: 2em;
-    opacity: 0.6;
+    opacity: .7;
+    min-height: 70%;
 }
 
 article p, article ul li{
@@ -80,6 +86,23 @@ span {
     cursor: pointer;
     user-select: none;
     opacity: 0.8;
+}
+
+span span{
+    padding-top: 1em;
+    padding-left: 1em;
+    color: black;
+    opacity: 1;
+    width: 90%;
+}
+
+span em {
+    color: black;
+}
+
+span div {
+    padding-top: 1em;width: 90%;
+
 }
 
 span#retail {
@@ -359,3 +382,132 @@ textarea {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+
+hr {
+    width: 40px;
+    height: 4px;
+    background: #30393f;
+    border: none;
+    display: block;
+}
+
+.ourTeam {
+    display: grid;
+    grid-gap: 2em 1.5em;
+    /*grid-template-columns: 30% min-content 1fr max-content;*/
+    grid-template-areas:
+            'teamHeader teamHeader teamHeader';
+    align-content: space-around;
+}
+
+.teamHeader {
+    grid-area: teamHeader;
+}
+
+.ourTeam > .person {
+    width: 17em;
+    height: 22em;
+    /*grid-column: span 3;*/
+}
+
+.position {
+    opacity: .75;
+    font-size: .9em;
+    text-align: center;
+    color: white;
+    grid-area: position;
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    background-clip: text;
+    color: white;
+    grid-area: name;
+}
+
+.personDescription {
+    display: none;
+    font-size: 1.1em;
+    text-align: center;
+    color: white;
+    grid-area: personDesc;
+}
+
+.person {
+    display: grid;
+    grid-template-areas:
+            '.'
+            'position'
+            'name'
+            'person_hr'
+            'personDesc';
+    grid-template-rows: 84% 8% 8% 0% 0%;
+    background-image: linear-gradient(-180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.24) 56%,rgba(0,0,0,.76) 99%);
+    transition: .8s;
+}
+
+.person:hover  {
+    display: grid;
+    grid-template-areas:
+            '.'
+            'position'
+            'name'
+            'person_hr'
+            'personDesc';
+    grid-template-rows: minmax(0%, 68%) 8% 8% 8% minmax(max-content, 8%);
+    transform: perspective(1000px) rotateY(15deg);
+    /*transform: skewY(5deg);*/
+    transition: .8s;
+    padding: 0 1em;
+}
+
+.person:hover .person_hr, .person:hover .personDescription {
+    display: block;
+}
+
+.person_hr {
+    display: none;
+    grid-area: person_hr;
+    background: rgba(255, 165, 56, 1);
+}
+
+#YT, #AM, #DN, #AS, #YV, #MR, #SE, #TS {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#YT {
+    background-image: url('../imgs/YT.jpg');
+}
+
+#AM {
+    background-image: url('../imgs/AM.jpg');
+}
+
+#DN {
+    background-image: url('../imgs/DN.jpg');
+}
+
+#AS {
+    background-image: url('../imgs/AS.jpg');
+}
+
+#YV {
+    background-image: url('../imgs/YV.jpg');
+}
+
+#MR {
+    background-image: url('../imgs/MR.jpg');
+}
+
+#SE {
+    background-image: url('../imgs/SE.jpg');
+}
+
+#TS {
+    background-image: url('../imgs/TS.jpg');
+}
+
